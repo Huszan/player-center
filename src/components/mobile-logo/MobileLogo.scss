@@ -1,0 +1,32 @@
+.mobile-logo {
+    display: inline-block;
+    margin: 17px;
+
+    .logo-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    
+        filter: drop-shadow(1px 1px 1px #000000);
+    
+        img {
+            width: 73px;
+        }
+    
+        .title {
+            margin: unset;
+            padding-top: 4px;
+            margin-left: -15px;
+            text-align: center;
+        }
+        
+    }
+
+    .description {
+        max-width: 500px;
+        margin: auto;
+        text-align: center;
+    }
+}

@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import PopupManager from './utils/PopupManager';
+import PopupOverlay from './components/popup-overlay/PopupOverlay';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import WindowManager from './utils/WindowManager';
+import WelcomeView from './components/views/welcome-view/WelcomeView';
+import HostForm from './components/host-form/HostForm';
+import JoinForm from './components/join-form/JoinForm';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <WelcomeView />,
+      children: [
+        {
+          path: "host",
+          element: <HostForm />
+        },
+        {
+          path: "join",
+          element: <JoinForm />
+        },
+      ]
+    },
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PopupManager>
+      <WindowManager>
+        <div className='App'>
+          <PopupOverlay />
+          <main>
+              <RouterProvider router={router} />
+          </main>
+        </div>
+      </WindowManager>
+    </PopupManager>
   );
 }
 

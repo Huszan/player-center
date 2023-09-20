@@ -1,0 +1,37 @@
+.welcome-view {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+
+    .nav-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2vw;
+
+        .nav-item {
+            font-size: 24px;
+            &:hover {
+                cursor: pointer;
+                opacity: 80%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .welcome-view {
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+
+        .nav-wrapper {
+            gap: 2vw;
+
+            .nav-item {
+                font-size: 3.5vw;
+                padding: 0 1.5rem;
+            }
+        }
+    }
+}
