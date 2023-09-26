@@ -2,9 +2,8 @@ import './Chat.scss';
 import HideSvg from '../../resources/hide.svg';
 import SendSvg from '../../resources/send.svg';
 import ChatSvg from '../../resources/chat.svg';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { stringToHslColor } from '../../utils/HelperFunctions';
-import { PopupContext } from '../../utils/PopupManager';
 
 const template = {
     messages: [
@@ -91,16 +90,16 @@ export default function Chat() {
             {
                 isOpen ?
                 <div className='chat'>
-                    <img src={ HideSvg } onClick={toggle} className='icon-medium'></img>
+                    <img src={ HideSvg } onClick={toggle} className='icon-medium' alt=''></img>
                     <div className='messages'>
                         { messageElements }
                     </div>
                     <form className='send-form' onSubmit={handleSubmit}>
                         <input name='message' placeholder='Write message here..' value={form.message} onChange={handleChange}></input>
-                        <button className='rounded secondary'><img src={SendSvg} className='icon-medium'></img></button>
+                        <button className='rounded secondary'><img src={SendSvg} className='icon-medium' alt=''></img></button>
                     </form>
                 </div> :
-                <button className='rounded secondary'><img src={ChatSvg} className='icon-medium' onClick={toggle}></img></button>
+                <button className='rounded secondary'><img src={ChatSvg} className='icon-medium' onClick={toggle} alt=''></img></button>
             }
         </div>
     )

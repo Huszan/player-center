@@ -4,7 +4,6 @@ import './LobbyView.scss';
 
 import SettingsSvg from '../../../resources/settings.svg';
 import ControllerSvg from '../../../resources/controller.svg';
-import ChatSvg from '../../../resources/chat.svg';
 
 import LobbyGeneralPanel from '../../lobby-general-panel/LobbyGeneralPanel';
 import GameList from '../../game-list/GameList';
@@ -25,7 +24,6 @@ const navItems = [
 
 export default function LobbyView() {
     const [activatedRoute, setActivatedRoute] = useState('settings');
-    const window = useContext(WindowContext);
     const navElements = navItems.map(nav => {
         return (
             <span 
@@ -33,7 +31,7 @@ export default function LobbyView() {
                 className={`item ${activatedRoute === nav.key && 'active'}`} 
                 onClick={() => {setActivatedRoute(nav.key)}}
             >
-                <img src={ nav.icon } className='center-abs'></img>
+                <img src={ nav.icon } className='center-abs' alt=''></img>
             </span>
         )
     }) 
