@@ -23,7 +23,7 @@ const navItems = [
 ]
 
 export default function LobbyView() {
-    const [activatedRoute, setActivatedRoute] = useState('games');
+    const [activatedRoute, setActivatedRoute] = useState('settings');
     const navElements = navItems.map(nav => {
         return (
             <span 

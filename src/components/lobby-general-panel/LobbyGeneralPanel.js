@@ -3,10 +3,10 @@ import './LobbyGeneralPanel.scss';
 import { WindowContext } from '../../utils/WindowManager';
 import { PopupContext } from '../../utils/PopupManager';
 import { copyToClipboard, stringToHslColor } from '../../utils/HelperFunctions';
-import MobileLogo from '../mobile-logo/MobileLogo';
 import { useParams } from 'react-router';
 import CopySvg from '../../resources/copy.svg';
 import ExpandableBlock from '../expandable-block/ExpandableBlock';
+import HorizontalLogo from '../horizontal-logo/HorizontalLogo';
 
 const template = {
     users: [
@@ -48,7 +48,7 @@ export default function LobbyGeneralPanel(props) {
 
     return (
         <div className='lobby-general-panel'>
-            <MobileLogo showDesc={ false } />
+            <HorizontalLogo showDesc={ false } />
             <div className='flex-block interactable' onClick={ onCopyId }>
                 <span className='text-expand'><b>LobbyID:</b> { lobbyId }</span>
                 <img src={ CopySvg } className='icon-small' alt=''></img>

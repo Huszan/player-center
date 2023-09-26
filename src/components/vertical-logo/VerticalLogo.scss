@@ -1,34 +1,32 @@
-.mobile-logo {
-    display: block;
-    margin: 17px 24px;
+.vertical-logo {
+    display: inline-block;
+    margin: auto 17px;
 
     .logo-wrapper {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 24px;
     
         filter: drop-shadow(1px 1px 1px #000000);
     
         img {
-            width: 35%;
+            width: 75%;
+            margin-top: -10%;
         }
     
         .title {
-            font-size: 10vw;
             margin: unset;
-            padding-top: 4px;
-            margin-left: -15px;
+            font-size: 8vw;
+            line-height: .75;
+            z-index: 1;
             text-align: center;
         }
-        
     }
 
     .description {
         max-width: 500px;
-        opacity: 90%;
-        font-size: 14px;
         margin: auto;
         text-align: center;
     }

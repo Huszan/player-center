@@ -1,12 +1,12 @@
 import pcLogo from '../../resources/player-center-logo.svg';
-import './BigLogo.scss';
+import './HorizontalLogo.scss';
 
-export default function BigLogo({ showDesc = true }) {
+export default function HorizontalLogo({ showDesc = true }) {
     return (
-        <div className="big-logo">
+        <div className="horizontal-logo">
             <div className='logo-wrapper'>
-                <h1 className='title'>PLAYER <br /> CENTER</h1>
                 <img src={ pcLogo } alt=''></img>
+                <h1 className='title'>PLAYER <br /> CENTER</h1>
             </div>
             {
                 showDesc && 

@@ -1,9 +1,9 @@
-import MobileLogo from '../../mobile-logo/MobileLogo'
-import BigLogo from '../../big-logo/BigLogo'
 import './WelcomeView.scss'
 import { useContext } from 'react'
 import { WindowContext } from '../../../utils/WindowManager'
 import { Link, useOutlet } from 'react-router-dom';
+import HorizontalLogo from '../../horizontal-logo/HorizontalLogo';
+import VerticalLogo from '../../vertical-logo/VerticalLogo';
 
 export default function WelcomeView(props) {
     const window = useContext(WindowContext);
@@ -11,7 +11,7 @@ export default function WelcomeView(props) {
 
     return (
         <div className='welcome-view'>
-            {window.isMobile ? <MobileLogo /> : <BigLogo />}
+            {window.isMobile ? <HorizontalLogo /> : <VerticalLogo />}
             {
                 outlet ||
                 <div className='nav-wrapper'>

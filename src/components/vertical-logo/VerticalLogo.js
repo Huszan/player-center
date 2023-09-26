@@ -1,12 +1,12 @@
 import pcLogo from '../../resources/player-center-logo.svg';
-import './MobileLogo.scss';
+import './VerticalLogo.scss';
 
-export default function MobileLogo({ showDesc = true }) {
+export default function VerticalLogo({ showDesc = true }) {
     return (
-        <div className="mobile-logo">
+        <div className="vertical-logo">
             <div className='logo-wrapper'>
-                <img src={ pcLogo } alt=''></img>
                 <h1 className='title'>PLAYER <br /> CENTER</h1>
+                <img src={ pcLogo } alt=''></img>
             </div>
             {
                 showDesc && 
