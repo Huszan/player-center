@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import './LobbyGeneralPanel.scss';
-import { WindowContext } from '../../utils/WindowManager';
 import { PopupContext } from '../../utils/PopupManager';
 import { copyToClipboard, stringToHslColor } from '../../utils/HelperFunctions';
 import { useParams } from 'react-router';
@@ -21,12 +20,11 @@ const template = {
         {
             id: '2314',
             name: 'User',
-        }
+        },
     ]
 }
 
 export default function LobbyGeneralPanel(props) {
-    const window = useContext(WindowContext);
     const popup = useContext(PopupContext);
     const { lobbyId } = useParams();
 

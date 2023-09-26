@@ -1,5 +1,6 @@
 import './GameList.scss';
 import PlaySvg from '../../resources/play.svg';
+import VerticalLogo from '../vertical-logo/VerticalLogo';
 
 const template = {
     games: [
@@ -55,6 +56,7 @@ export default function GameList() {
     return (
         <div className='game-list'>
             { gameElements }
+            <VerticalLogo showDesc={false} />
         </div>
     )
 }

@@ -36,14 +36,28 @@ export default function LobbyView() {
         )
     }) 
     const currentComponent = navItems.find(el => {return el.key === activatedRoute}).component;
+    const window = useContext(WindowContext);
 
     return (
         <div className='lobby-view'>
-            <nav className='navigator'>
-                { navElements }
-            </nav>
+            {
+                window.isMobile ?
+                <>
+                    <nav className='navigator'>
+                        { navElements }
+                    </nav>
+                    { currentComponent }
+                </> :
+                <>
+                    <div className='desktop-lobby-wrapper'>
+                        <LobbyGeneralPanel />
+                        <div className='game-list--wrapper'>
+                            <GameList />
+                        </div>
+                    </div>
+                </>
+            }
             <Chat />
-            { currentComponent }
         </div>
     )
 }

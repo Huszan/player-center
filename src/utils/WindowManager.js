@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react';
 export const WindowContext = createContext();
 
 function setRootWindowStyle() {
-  if (window.innerWidth > 600) document.getElementById('root').classList.add('desktop');
+  if (window.innerWidth > 800) document.getElementById('root').classList.add('desktop');
   else document.getElementById('root').classList.remove('desktop');
 }
 
 export default function WindowManager(props) {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
 
     function init() {
-      setIsMobile(window.innerWidth <= 600);
+      setIsMobile(window.innerWidth <= 800);
       setRootWindowStyle();
     }
 

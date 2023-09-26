@@ -60,10 +60,8 @@ img {
         height: 40px;
         width: 40px;
     }
-    &.add-bg {
-
-    }
     &.icon-small, &.icon-medium, &.icon-big {
+        cursor: pointer;
         &:hover {
             opacity: 80%;
         }

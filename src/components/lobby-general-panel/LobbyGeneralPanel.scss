@@ -1,4 +1,13 @@
-
 .lobby-general-panel {
-    
+    max-height: 100vh;
+    overflow: auto;
+
+    .horizontal-logo {
+        margin-bottom: 50px;
+    }
+}
+
+.desktop .lobby-general-panel {
+    background-color: #00000040;
+    box-shadow: 5px 5px 10px #00000080;
 }
