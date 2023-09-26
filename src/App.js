@@ -6,6 +6,7 @@ import WindowManager from './utils/WindowManager';
 import WelcomeView from './components/views/welcome-view/WelcomeView';
 import HostForm from './components/host-form/HostForm';
 import JoinForm from './components/join-form/JoinForm';
+import LobbyView from './components/views/lobby-view/LobbyView';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
           element: <JoinForm />
         },
       ]
+    },
+    {
+      path: "lobby/:lobbyId",
+      element: <LobbyView />
     },
   ])
 

@@ -1,0 +1,31 @@
+@import "./../../../theme.scss";
+
+.lobby-view {
+    width: 100vw;
+    height: 100vh;
+
+    .navigator {
+        background-color: #00000066;
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        padding: 0 5px;
+        gap: 2px;
+
+        .item {
+            position: relative;
+            cursor: pointer;
+            width: 20px;
+            height: 18px;
+            background-color: $bg-color;
+            opacity: 50%;
+            border-radius: 15px 15px 0 0;
+
+            &.active {
+                opacity: 100%;
+            }
+        }
+    }
+}

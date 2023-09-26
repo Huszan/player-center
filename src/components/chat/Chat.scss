@@ -1,0 +1,42 @@
+@import '../../theme.scss';
+
+.chat-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.chat {
+    width: calc(100vw - 40px);
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: $bg-color-2;
+    border-radius: 25px;
+    height: 40vh;
+    box-shadow: 2px 2px 2px 2px #00000020;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .messages {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+    }
+
+    .send-form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        gap: 5px;
+        min-height: 24px;
+
+        input {
+            flex-grow: 1;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.game-list {
+    .game-block {
+        display: flex;
+        flex-direction: row;
+        margin: 5px 10px;
+        padding-right: 5px;
+        background-color: #00000030;
+        border-radius: 20px;
+        height: 80px;
+
+        .img {
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            background-color: #00000030;
+            background-size: cover;
+            background-position: center;
+        }
+        .info {
+            flex-grow: 1;
+            margin: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+    }
+}

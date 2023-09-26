@@ -7,7 +7,7 @@ body {
   color: $bg-color-text;
   box-sizing: border-box;
 
-  font-size: 8px;
+  font-size: 12px;
 }
 
 a {
@@ -38,14 +38,13 @@ h3 {
 }
 
 h4 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 h5 {
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 700;
-  text-align: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -74,6 +73,11 @@ h5 {
   }
 }
 
+hr {
+  opacity: 30%;
+  border-top: white;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -85,6 +89,9 @@ h5 {
 }
 
 img {
+  display: block;
+  margin: 0;
+  padding: 0;
   &.icon-small {
     height: 12px;
     width: 12px;
@@ -141,10 +148,29 @@ form {
 
 }
 
+.desktop {
+  form {
+    padding: 23px 19px;
+
+    label {
+      margin-bottom: 6px;
+    }
+
+    input {
+      padding: 12px 18px;
+    }
+  }
+
+  button {
+    padding: 12px 40px;
+  }
+
+}
+
 button {
   all: unset;
 
-  display: inline-block;
+  display: block;
   margin: auto;
   cursor: pointer;
   padding: 4px 18px;
@@ -156,25 +182,53 @@ button {
   &:hover {
     opacity: .95;
   }
+
+  &.rounded {
+    padding: 5px;
+    border-radius: 100%;
+  }
+
+  &.secondary {
+    background-color: $base-color-3;
+    color: $base-color-3-text;
+  }
 }
 
-.desktop {
-  form {
-    padding: 23px 19px;
+.center-abs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
 
-    label {
-      margin-bottom: 6px;
-    }
+.flex-block {
+  display: flex;
+  margin: 19px;
+  flex-wrap: nowrap;
 
-    input {
-      padding: 12px 18px;
-      margin-bottom: 23px;
-    }
-
+  &.interactable {
+    cursor: pointer;
   }
 
-  button {
-    padding: 12px 40px;
+  .text-expand {
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
   }
+}
 
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 5px;
+  background-color: #f1f1f110;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $base-color-3;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
