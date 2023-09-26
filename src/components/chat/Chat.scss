@@ -1,19 +1,22 @@
-@import '../../theme.scss';
+@import '../../styles/theme.scss';
 
 .chat-overlay {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 1000;
 }
 
 .chat {
-    width: calc(100vw - 40px);
+    width: calc(100vw - 60px);
+    max-width: 600px;
     padding: 10px;
-    box-sizing: border-box;
     background-color: $bg-color-2;
     border-radius: 25px;
     height: 40vh;
     box-shadow: 2px 2px 2px 2px #00000020;
+    box-sizing: content-box;
 
     display: flex;
     flex-direction: column;
@@ -27,16 +30,16 @@
         overflow-y: auto;
     }
 
-    .send-form {
+    .send-wrapper {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        gap: 5px;
-        min-height: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
 
         input {
             flex-grow: 1;
+            border-radius: 25px;
         }
     }
 }

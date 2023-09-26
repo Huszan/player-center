@@ -1,0 +1,137 @@
+a {
+    all: unset;
+    cursor: pointer;
+  }
+  
+h1, h2, h3, h4, h5, h6 {
+    all: unset;
+    display: block;
+    line-height: 1;
+}
+
+body {
+    font-size: 16px;
+}
+  
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+  
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+  
+h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+  
+h4 {
+    font-size: 20px;
+    font-weight: 700;
+}
+  
+h5 {
+    font-size: 18px;
+    font-weight: 700;
+}
+  
+hr {
+    opacity: 30%;
+    border-top: white;
+}
+
+img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    &.icon-small {
+        height: 20px;
+        width: 20px;
+    }
+    &.icon-medium {
+        height: 30px;
+        width: 30px;
+    }
+    &.icon-big {
+        height: 40px;
+        width: 40px;
+    }
+    &.add-bg {
+
+    }
+    &.icon-small, &.icon-medium, &.icon-big {
+        &:hover {
+            opacity: 80%;
+        }
+    }
+}
+  
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 23px 19px;
+
+    label {
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+    }
+}
+
+input {
+    all: unset;
+    color: black;
+    background-color: rgba(255, 255, 255, 90%);
+    padding: 10px 18px;
+    border-radius: 6px;
+
+    &::placeholder {
+    color: rgb(0, 0, 0, 20%);
+    }
+}
+  
+button {
+    all: unset;
+
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    padding: 12px 40px;
+    background-color: $base-color-2;
+    color: $base-color-2-text;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px 1px #00000025;
+
+    &:hover {
+        opacity: .95;
+    }
+
+    &.rounded {
+        padding: 8px;
+        border-radius: 100%;
+    }
+
+    &.secondary {
+        background-color: $base-color-3;
+        color: $base-color-3-text;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+    background-color: #f1f1f110;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $base-color-3;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}

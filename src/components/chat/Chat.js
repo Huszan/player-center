@@ -2,7 +2,7 @@ import './Chat.scss';
 import HideSvg from '../../resources/hide.svg';
 import SendSvg from '../../resources/send.svg';
 import ChatSvg from '../../resources/chat.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { stringToHslColor } from '../../utils/HelperFunctions';
 
 const template = {
@@ -35,9 +35,7 @@ const template = {
 export default function Chat() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState(template.messages);
-    const [form, setForm] = useState({
-        message: ''
-    });
+    const [message, setMessage] = useState('');
     const messageElements = messages.map((message, i) => {
         let userColor = stringToHslColor(message.user.id);
         return (
@@ -47,29 +45,24 @@ export default function Chat() {
         )
     })
 
-    function resetForm() {
-        setForm({
-            message: ''
-        })
-    }
+    useEffect(() => {
+        const messagesElement = document.getElementById('chat--messages');
+        if (!messagesElement) return;
+        messagesElement.scrollTo({ top: messagesElement.scrollHeight, behavior: 'smooth' });
+    }, [messages])
 
     function toggle() {
         setIsOpen(prev => !prev);
     }
 
     function handleChange(event) {
-        let {name, value} = event.target;
-        setForm(prev => {
-            return {
-                ...prev,
-                [name]: value
-            }
-        })
+        let {value} = event.target;
+        setMessage(value);
     }
 
-    function handleSubmit(event) {
+    function handleSend(event) {
         event.preventDefault();
-        if (form.message.trim().length === 0) return;
+        if (message.trim().length === 0) return;
         setMessages(prev => {
             return [
                 ...prev,
@@ -78,11 +71,11 @@ export default function Chat() {
                         id: '1234',
                         name: 'Host',
                     },
-                    content: form.message,
+                    content: message,
                 },
             ]
         })
-        resetForm();
+        setMessage('');
     }
 
     return (
@@ -90,14 +83,14 @@ export default function Chat() {
             {
                 isOpen ?
                 <div className='chat'>
-                    <img src={ HideSvg } onClick={toggle} className='icon-medium' alt=''></img>
-                    <div className='messages'>
+                    <img src={ HideSvg } onClick={toggle} className='icon-small' alt=''></img>
+                    <div id='chat--messages' className='messages'>
                         { messageElements }
                     </div>
-                    <form className='send-form' onSubmit={handleSubmit}>
-                        <input name='message' placeholder='Write message here..' value={form.message} onChange={handleChange}></input>
-                        <button className='rounded secondary'><img src={SendSvg} className='icon-medium' alt=''></img></button>
-                    </form>
+                    <div className='send-wrapper'>
+                        <input name='message' placeholder='Write message here..' value={message} onChange={handleChange}></input>
+                        <img src={SendSvg} onClick={handleSend} className='icon-medium' alt=''></img>
+                    </div>
                 </div> :
                 <button className='rounded secondary'><img src={ChatSvg} className='icon-medium' onClick={toggle} alt=''></img></button>
             }

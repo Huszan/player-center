@@ -1,6 +1,6 @@
 .mobile-logo {
     display: block;
-    margin: 17px auto;
+    margin: 17px 24px;
 
     .logo-wrapper {
         display: flex;
@@ -12,11 +12,11 @@
         filter: drop-shadow(1px 1px 1px #000000);
     
         img {
-            width: 73px;
+            width: 35%;
         }
     
         .title {
-            font-size: 24px;
+            font-size: 10vw;
             margin: unset;
             padding-top: 4px;
             margin-left: -15px;
@@ -27,6 +27,8 @@
 
     .description {
         max-width: 500px;
+        opacity: 90%;
+        font-size: 14px;
         margin: auto;
         text-align: center;
     }

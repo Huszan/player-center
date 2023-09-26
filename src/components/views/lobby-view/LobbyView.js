@@ -23,7 +23,7 @@ const navItems = [
 ]
 
 export default function LobbyView() {
-    const [activatedRoute, setActivatedRoute] = useState('settings');
+    const [activatedRoute, setActivatedRoute] = useState('games');
     const navElements = navItems.map(nav => {
         return (
             <span 
@@ -31,7 +31,7 @@ export default function LobbyView() {
                 className={`item ${activatedRoute === nav.key && 'active'}`} 
                 onClick={() => {setActivatedRoute(nav.key)}}
             >
-                <img src={ nav.icon } className='center-abs' alt=''></img>
+                <img src={ nav.icon } className='center-abs icon-small' alt=''></img>
             </span>
         )
     }) 

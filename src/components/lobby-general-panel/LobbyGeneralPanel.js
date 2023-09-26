@@ -51,7 +51,7 @@ export default function LobbyGeneralPanel(props) {
             <MobileLogo showDesc={ false } />
             <div className='flex-block interactable' onClick={ onCopyId }>
                 <span className='text-expand'><b>LobbyID:</b> { lobbyId }</span>
-                <img src={ CopySvg }></img>
+                <img src={ CopySvg } className='icon-small' alt=''></img>
             </div>
             <hr></hr>
             <ExpandableBlock title='Users'>

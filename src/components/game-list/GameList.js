@@ -47,7 +47,7 @@ export default function GameList() {
                     <span>Playing time: ~{game.playingTime}</span>
                     <span>Randomness: {game.randomness}</span>
                 </span>
-                <button className='rounded'><img src={ PlaySvg } className='icon-big'></img></button>
+                <button className='play-button'><img src={ PlaySvg } className='icon-big'></img></button>
             </div>
         )
     })
