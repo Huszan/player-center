@@ -11,8 +11,8 @@ export default function ExpandableBlock(props) {
     }
 
     return (
-        <div className='expandable-block' onClick={expand}>
-            <div className='flex-block interactable'>
+        <div className='expandable-block'>
+            <div className='flex-block interactable' onClick={expand}>
                 <span className='text-expand'><b>{ props.title }</b></span>
                 <img src={ isExpanded ? ArrowDownSvg : ArrowUpSvg } className='icon-small'></img>
             </div>

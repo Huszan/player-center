@@ -12,6 +12,7 @@ function copyToClipboard(data) {
 }
 
 function stringToHslColor(str, s = 50, l = 65) {
+  if (!str) return 'hsl(0,0,0)';
   var hash = 0;
   for (var i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
