@@ -7,35 +7,19 @@ import CopySvg from '../../resources/copy.svg';
 import ExpandableBlock from '../expandable-block/ExpandableBlock';
 import HorizontalLogo from '../horizontal-logo/HorizontalLogo';
 
-const template = {
-    users: [
-        {
-            id: '1234',
-            name: 'Host',
-        },
-        {
-            id: '4321',
-            name: 'User',
-        },
-        {
-            id: '2314',
-            name: 'User',
-        },
-    ]
-}
-
 export default function LobbyGeneralPanel(props) {
     const popup = useContext(PopupContext);
+    const { lobby } = props;
     const { lobbyId } = useParams();
 
-    const usersElements = template.users.map(user => {
+    const usersElements = lobby ? lobby.users.map(user => {
         let userColor = stringToHslColor(user.id);
         return (
             <div className='flex-block' key={user.id}>
-                <span className='text-expand' style={{color: `${userColor}`}}><b>{ `${user.name}#${user.id}` }</b></span>
+                <span className='text-expand' style={{color: `${userColor}`}}><b>{ `${user.username}` }</b></span>
             </div>
         )
-    })
+    }) : undefined;
 
     function onCopyId() {
         let message = copyToClipboard(lobbyId);
@@ -53,7 +37,7 @@ export default function LobbyGeneralPanel(props) {
             </div>
             <hr></hr>
             <ExpandableBlock title='Users'>
-                {usersElements}
+                { usersElements }
             </ExpandableBlock>
             <hr></hr>
             <ExpandableBlock title='Filter games'>

@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './JoinForm.scss'
 import arrowBack from '../../resources/arrow_back.svg';
 import { useContext, useState } from 'react';
 import { PopupContext } from '../../utils/PopupManager';
+import { getLobby } from '../../utils/Firebase/Firebase';
+import { storageManager } from '../../utils/StorageManager';
+import uniqid from "uniqid";
 
 export default function JoinForm() {
     const [form, setForm] = useState({
@@ -10,6 +13,7 @@ export default function JoinForm() {
         username: '',
     })
     const popupManager = useContext(PopupContext);
+    const navigate = useNavigate();
 
     function handleChange(event) {
         let {id, value} = event.target;
@@ -23,7 +27,22 @@ export default function JoinForm() {
 
     function submitForm(event) {
         event.preventDefault();
-        popupManager.pop.info(`Joining game => ${JSON.stringify(form)}`);
+        let user = storageManager.get('user');
+        if (!user || user.username !== form.username) {
+            user = {
+                id: user && user.id ? user.id : uniqid(),
+                username: form.username,
+            }
+            storageManager.set('user', user)
+        }
+        getLobby(form.lobbyId).then(
+            (lobby) => {
+                navigate(`/lobby/${form.lobbyId}`, { state: { lobby }});
+            },
+            (rej) => {
+                popupManager.pop.warning(rej);
+            }
+        );
     }
 
     return (

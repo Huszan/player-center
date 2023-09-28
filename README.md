@@ -5,6 +5,8 @@
 * [Functionalities](#functionalities-checklist)
 
 ## General info
+DEVELOPMENT SUSPENDED. NEED RELIABLE BACKEND, OR CLOUD FUNCTIONS.
+
 Player Center is a user-friendly website dedicated to making multiplayer gaming easy and enjoyable. With Player Center, you can effortlessly create or join game rooms and play with your friends games online without downloading anything to your device.
 	
 ## Technologies
@@ -27,9 +29,9 @@ To run this project, install it locally using npm:
 
 - [x] Routing
 - [x] Popup boxes
-- [ ] Hosting/joining rooms
+- [ ] Hosting/joining rooms (started)
 - [ ] Starting and playing games
-- [ ] Chat-box
+- [ ] Chat-box (ui finished)
 - [ ] Game log
 - [ ] Fully finished responsive UI
 - [ ] Design and add a lot of games!

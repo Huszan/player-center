@@ -3,12 +3,19 @@ import arrowBack from '../../resources/arrow_back.svg';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { PopupContext } from '../../utils/PopupManager';
+import { createLobby } from '../../utils/Firebase/Firebase';
+import { useNavigate } from "react-router-dom";
+import uniqid from "uniqid";
+import { storageManager } from '../../utils/StorageManager';
+
+const emptyForm = {
+    username: '',
+}
 
 export default function HostForm() {
-    const [form, setForm] = useState({
-        username: '',
-    })
+    const [form, setForm] = useState(emptyForm)
     const popupManager = useContext(PopupContext);
+    const navigate = useNavigate();
 
     function handleChange(event) {
         let {id, value} = event.target;
@@ -22,7 +29,20 @@ export default function HostForm() {
 
     function submitForm(event) {
         event.preventDefault();
-        popupManager.pop.info(`Hosting game => ${JSON.stringify(form)}`);
+        let user = storageManager.get('user');
+        if (!user || user.username !== form.username) {
+            user = {
+                id: user && user.id ? user.id : uniqid(),
+                username: form.username,
+            }
+            storageManager.set('user', user)
+        }
+        createLobby(user).then(lobby => {
+            if (lobby.id) {
+                navigate(`/lobby/${lobby.id}`);
+            }
+        })
+        setForm(emptyForm);
     }
 
     return (
